@@ -5,7 +5,7 @@
   A wildcard module is declared below to allow third party libraries to be used in an app even if they don't
   provide their own type declarations.
 
-  To learn more about using third party libraries in an Ionic app, check out the docs here:
+  To learn more about using third party libraries in an LibreListen, check out the docs here:
   http://ionicframework.com/docs/v2/resources/third-party-libs/
 
   For more info on type definition files, check out the Typescript docs here:

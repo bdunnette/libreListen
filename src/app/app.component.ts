@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 
+import { AuthService } from '../providers/auth-service';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +18,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private _auth: AuthService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -41,5 +42,19 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  signInWithFacebook(): void {
+    this._auth.signInWithFacebook()
+      .then(() => this.onSignInSuccess());
+  }
+
+  signInWithGoogle(): void {
+    this._auth.signInWithGoogle()
+      .then(() => this.onSignInSuccess());
+  }
+
+  private onSignInSuccess(): void {
+    console.log("Signed in as display name ",this._auth.displayName());
   }
 }
