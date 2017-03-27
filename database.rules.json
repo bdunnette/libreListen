@@ -2,6 +2,8 @@
   "rules": {
     ".read": true,
     ".write": "auth != null",
-    "sections":{".indexOn":["work"]}
+    "sections": {
+      ".indexOn": ["work"]
+    }
   }
 }
