@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ (book | async)?.title }} ({{(book | async)?.copyright_year}})</ion-title>
+    <ion-title>{{ (book | async)?.title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,6 +15,12 @@
 
 <ion-content padding>
   <h2>{{ (book | async)?.title }} ({{(book | async)?.copyright_year}})</h2>
-  <code>{{book|async|json}}</code>
-  <code>{{sections|async|json}}</code>
+  <h5 *ngFor="let author of (book|async).authors" >{{author.first_name}} {{author.last_name}} ({{author.dob}}-{{author.dod}})</h5>
+  <p [innerHTML]="(book|async).description"></p>
+  <div>
+    <code>{{book|async|json}}</code>
+  </div>
+  <div>
+    <code>{{sections|async|json}}</code>
+  </div>
 </ion-content>
